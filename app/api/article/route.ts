@@ -20,6 +20,8 @@ export async function POST(request: Request) {
                     description TEXT,
                     category TEXT,
                     quantity NUMBER,
+                    price REAL,
+                    solde NUMBER,
                     FOREIGN KEY (category) REFERENCES categories(name)
                 )`,
                 (err) => {
