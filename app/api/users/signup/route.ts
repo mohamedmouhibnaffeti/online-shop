@@ -16,7 +16,7 @@ export async function POST(request: Request){
                         name TEXT,
                         lastname TEXT,
                         email TEXT UNIQUE,
-                        password TEXT,
+                        password TEXT
                     )`,
                     (err)=>{
                         if(err){
@@ -37,7 +37,7 @@ export async function POST(request: Request){
                     reject(err)
                     return
                 }
-                resolve(!!err)
+                resolve(!!row)
             })
         })
 
@@ -56,15 +56,15 @@ export async function POST(request: Request){
                     }else{
                         reject(err)
                     }
-                    const id = this.lastID
-                    console.log(`article inserted, ID:${id}`)
-                    resolve()
                 }
+                const id = this.lastID
+                console.log(`article inserted, ID:${id}`)
+                resolve()
             })
-
-            db.run("COMMIT")
-            return NextResponse.json({ message: "Article inserted successfully" }, { status: 200 })
         })
+        
+        db.run("COMMIT")
+        return NextResponse.json({ message: "user created successfully" }, { status: 200 })
     }catch(error: any){
         console.error("Error processing request:", error.message);
         db.run("ROLLBACK"); // Rollback transaction on error
