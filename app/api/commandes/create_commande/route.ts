@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request){
     try {
-        const { username, article } = await request.json()
+        const { email, article } = await request.json()
 
         db.run("PRAGMA foreign_keys = ON")
 
@@ -14,9 +14,9 @@ export async function POST(request: Request){
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 state TEXT CHECK(state IN ('pending', 'confirmed', 'refused', 'delivred')),
                 created_at TEXT DEFAULT (DATETIME('now')),
-                username TEXT,
+                user TEXT,
                 article TEXT,
-                FOREIGN KEY (username) references users(username)
+                FOREIGN KEY (user) references users(email)
                 FOREIGN KEY (article) references articles(name)
             )`,
             (err)=>{
@@ -32,8 +32,8 @@ export async function POST(request: Request){
         })
 
         await new Promise<void>((resolve, reject) => {
-            const query = `INSERT INTO commandes(state, username, article) VALUES(?, ?, ?, ?)`
-            db.run(query, ['pending', username, article], function(err){
+            const query = `INSERT INTO commandes(state, user, article) VALUES(?, ?, ?)`
+            db.run(query, ['pending', email, article], function(err){
                 if(err){
                     console.error("Error inserting commande: ", err.message)
                     if(err.message.includes("FOREIGN KEY constraint failed")){
