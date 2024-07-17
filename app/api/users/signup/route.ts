@@ -51,25 +51,42 @@ export async function POST(request: Request){
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(password, salt)
 
-        await new Promise<void>((resolve, reject)=>{
-            const query = `INSERT INTO users(name, lastname, email, password) VALUES(?, ?, ?, ?)`
-            db.run(query, [name, lastname, email, hashedPassword], function(err){
-                if(err){
-                    console.error("Error creating user: ", err.message)
-                    if(err.message.includes("FOREIGN KEY constraint failed")){
+        const newUser = await new Promise((resolve, reject) => {
+            const query = `INSERT INTO users(name, lastname, email, password) VALUES(?, ?, ?, ?)`;
+            db.run(query, [name, lastname, email, hashedPassword], function(err) {
+                if (err) {
+                    console.error("Error creating user: ", err.message);
+                    if (err.message.includes("FOREIGN KEY constraint failed")) {
                         reject(new Error("Foreign key constraint violation"));
-                    }else{
-                        reject(err)
+                    } else {
+                        reject(err);
                     }
+                } else {
+                    const id = this.lastID;
+                    console.log(`User inserted, ID: ${id}`);
+        
+                    const selectQuery = `SELECT * FROM users WHERE id = ?`;
+                    db.get(selectQuery, [id], (err, user) => {
+                        if (err) {
+                            reject(err);
+                        } else {
+                            resolve(user);
+                        }
+                    });
                 }
-                const id = this.lastID
-                console.log(`article inserted, ID:${id}`)
-                resolve()
-            })
-        })
+            });
+        });
         
         db.run("COMMIT")
-        return NextResponse.json({ message: "user created successfully" }, { status: 200 })
+
+        if(newUser){
+            const RefreshToken = createRefreshToken(newUser)
+            const AccessToken = createAccessToken(newUser)
+            return NextResponse.json({ message: "User Created.", user: newUser, AccessToken: AccessToken, RefreshToken: RefreshToken }, { status: 201 })
+        }else{
+            return NextResponse.json({ message: "user not created." }, { status: 400 })
+        }
+        
     }catch(error: any){
         console.error("Error processing request:", error.message);
         db.run("ROLLBACK"); // Rollback transaction on error
