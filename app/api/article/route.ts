@@ -1,15 +1,41 @@
 import db from "@/lib/ConnectDB";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
     try {
-        const { name, description, category } = await request.json();
+        const data = await request.formData();
+        const images = [];
+        images.push(data.get("image0"));
+        images.push(data.get("image1"));
+
+        // Convert images to binary
+        const binaryImages = images.map((image: any) => Buffer.from(image, 'base64'));
+
+        const name = data.get("name") as string;
+        const description = data.get("description") as string;
+        const category = data.get("category") as string;
 
         // Enable foreign key constraints
-        db.run("PRAGMA foreign_keys = ON");
+        await new Promise<void>((resolve, reject) => {
+            db.run("PRAGMA foreign_keys = ON", (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
 
         // Start transaction
-        db.run("BEGIN TRANSACTION");
+        await new Promise<void>((resolve, reject) => {
+            db.run("BEGIN TRANSACTION", (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
 
         // Create articles table if not exists
         await new Promise<void>((resolve, reject) => {
@@ -22,6 +48,7 @@ export async function POST(request: Request) {
                     quantity NUMBER,
                     price REAL,
                     solde NUMBER,
+                    images BLOB,
                     FOREIGN KEY (category) REFERENCES categories(name)
                 )`,
                 (err) => {
@@ -49,14 +76,22 @@ export async function POST(request: Request) {
         });
 
         if (existingArticle) {
-            db.run("ROLLBACK"); // Rollback transaction
+            await new Promise<void>((resolve, reject) => {
+                db.run("ROLLBACK", (err) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve();
+                    }
+                });
+            });
             return NextResponse.json({ error: 'Article already exists' }, { status: 400 });
         }
 
         // Insert new article
         await new Promise<void>((resolve, reject) => {
-            const query = `INSERT INTO articles(name, description, category) VALUES(?, ?, ?)`;
-            db.run(query, [name, description, category], function (err) {
+            const query = `INSERT INTO articles(name, description, category, images) VALUES(?, ?, ?, ?)`;
+            db.run(query, [name, description, category, Buffer.concat(binaryImages)], function (err) {
                 if (err) {
                     console.error("Error inserting article:", err.message);
                     if (err.message.includes("FOREIGN KEY constraint failed")) {
@@ -66,21 +101,38 @@ export async function POST(request: Request) {
                     }
                     return;
                 }
-                const id = this.lastID;
-                console.log(`Article inserted, ID: ${id}`);
+                console.log(`Article inserted, ID: ${this.lastID}`);
                 resolve();
             });
         });
 
         // Commit transaction
-        db.run("COMMIT");
+        await new Promise<void>((resolve, reject) => {
+            db.run("COMMIT", (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
 
         return NextResponse.json({ message: "Article inserted successfully" }, { status: 200 });
     } catch (error: any) {
         console.error("Error processing request:", error.message);
-        db.run("ROLLBACK"); // Rollback transaction on error
 
-        // specific error cases
+        // Rollback transaction on error
+        await new Promise<void>((resolve, reject) => {
+            db.run("ROLLBACK", (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
+
+        // Specific error cases
         if (error.message === "Foreign key constraint violation") {
             return NextResponse.json({ error: 'Foreign key constraint violated' }, { status: 400 });
         } else {
