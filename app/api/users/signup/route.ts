@@ -99,7 +99,7 @@ export async function POST(request: Request){
         if(newUser){
             const RefreshToken = createRefreshToken(newUser)
             const AccessToken = createAccessToken(newUser)
-            return NextResponse.json({ message: "User Created.", user: newUser, AccessToken: AccessToken, RefreshToken: RefreshToken }, { status: 201 })
+            return NextResponse.json({ user: newUser, AccessToken: AccessToken, RefreshToken: RefreshToken }, { status: 201 })
         }else{
             return NextResponse.json({ message: "user not created." }, { status: 400 })
         }

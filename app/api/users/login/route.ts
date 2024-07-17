@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs"
 import db from "@/lib/ConnectDB";
+import { createAccessToken, createRefreshToken } from "@/lib/functions/auth";
 
 export async function POST(request: Request){
     try{
@@ -26,7 +27,10 @@ export async function POST(request: Request){
             if(!match){
                 return NextResponse.json({message: "Incorrect Password"}, {status: 400})
             }else{    
-                return NextResponse.json({user: user}, {status: 200})
+                const {password, ...userWithoutPassword } = user
+                const RefreshToken = createRefreshToken(userWithoutPassword)
+                const AccessToken = createAccessToken(userWithoutPassword)
+                return NextResponse.json({user: userWithoutPassword, AccessToken: AccessToken, RefreshToken: RefreshToken}, {status: 200})
             }
         }
     }catch(err){
