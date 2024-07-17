@@ -2,10 +2,27 @@ import db from "@/lib/ConnectDB";
 import { NextResponse } from "next/server";
 import bcrypt from 'bcryptjs'
 import { createAccessToken, createRefreshToken } from "@/lib/functions/auth";
+import { isValidEmail } from "@/lib/functions/strings";
 
 export async function POST(request: Request){
     try{
         const {name, lastname, confirmPasssword, password, email} = await request.json()
+
+        if(!email || !isValidEmail(email)){
+            return NextResponse.json({message: "Invalid email, please try again with a valid email."}, {status: 400})
+        }
+        if(!name){
+            return NextResponse.json({message: "Name is required"}, {status: 400})
+        }
+        if(!lastname){
+            return NextResponse.json({message: "Lastname is required"}, {status: 400})
+        }
+        if(!password){
+            return NextResponse.json({message: "password is required"}, {status: 400})
+        }
+        if(password !== confirmPasssword){
+            return NextResponse.json({message: "Password and confirm password don't match"}, {status: 400})
+        }
 
         db.run("PRAGMA foreign_keys = ON")
 
@@ -65,7 +82,7 @@ export async function POST(request: Request){
                     const id = this.lastID;
                     console.log(`User inserted, ID: ${id}`);
         
-                    const selectQuery = `SELECT * FROM users WHERE id = ?`;
+                    const selectQuery = `SELECT id, name, lastname, email FROM users WHERE id = ?`;
                     db.get(selectQuery, [id], (err, user) => {
                         if (err) {
                             reject(err);
@@ -89,7 +106,7 @@ export async function POST(request: Request){
         
     }catch(error: any){
         console.error("Error processing request:", error.message);
-        db.run("ROLLBACK"); // Rollback transaction on error
+        db.run("ROLLBACK") // Rollback transaction on error
 
         // specific error cases
         if (error.message === "Foreign key constraint violation") {
