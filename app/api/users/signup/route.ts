@@ -1,7 +1,7 @@
 import db from "@/lib/ConnectDB";
 import { NextResponse } from "next/server";
 import bcrypt from 'bcryptjs'
-
+import { createAccessToken, createRefreshToken } from "@/lib/functions/auth";
 
 export async function POST(request: Request){
     try{
@@ -48,9 +48,12 @@ export async function POST(request: Request){
             return NextResponse.json({error: "User with provided email already exists"}, {status: 400})
         }
 
+        const salt = await bcrypt.genSalt(10)
+        const hashedPassword = await bcrypt.hash(password, salt)
+
         await new Promise<void>((resolve, reject)=>{
             const query = `INSERT INTO users(name, lastname, email, password) VALUES(?, ?, ?, ?)`
-            db.run(query, [name, lastname, email, password], function(err){
+            db.run(query, [name, lastname, email, hashedPassword], function(err){
                 if(err){
                     console.error("Error creating user: ", err.message)
                     if(err.message.includes("FOREIGN KEY constraint failed")){
