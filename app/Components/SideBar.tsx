@@ -13,7 +13,7 @@ export default function Sidebar({children}: {children: any}){
                     {children}
                 </ul>
 
-                <div className="border-t flex py">
+                <div className="border-t flex p-3">
 
                 </div>
 
