@@ -26,7 +26,7 @@ export default function DashMain(){
                 />
                 <SidebarItem
                     icon={<SendToBack size={20} />}
-                    text={"Articles"}
+                    text={"Commands"}
                     active={false}
                     alert={false}
                 />
