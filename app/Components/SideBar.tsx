@@ -1,9 +1,9 @@
 "use client"
 import { ChevronFirst, ChevronLast, LogOut } from "lucide-react"
 import Image from "next/image"
-import { useContext, useState } from "react"
+import { createContext, useContext, useState } from "react"
 
-export const SidebarContext = useContext()
+export const SidebarContext = createContext()
 export default function Sidebar({children}: {children: any}){
     const [expanded, setExpanded] = useState(false)
     return(
