@@ -1,4 +1,4 @@
-import { ChevronFirst, LogOut } from "lucide-react"
+import { ChevronFirst, ChevronLast, LogOut } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 export default function Sidebar({children}: {children: any}){
@@ -9,7 +9,7 @@ export default function Sidebar({children}: {children: any}){
                 <div className="p-4 pb-2 flex justify-between items-center">
                     <Image src={`https://img.logoipsum.com/243.svg`} height={100} width={100} alt="" className="w-32" />
                     <button onClick={()=>{setExpanded(curr => !curr)}} className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-black">
-                        { expanded ? <ChevronFirst /> : <Che }
+                        { expanded ? <ChevronFirst /> : <ChevronLast /> }
                     </button>
                 </div>
                 
