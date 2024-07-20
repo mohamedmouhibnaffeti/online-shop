@@ -8,10 +8,13 @@ export default function Sidebar({children}: {children: any}){
                     <Image src={`https://img.logoipsum.com/243.svg`} height={100} width={100} alt="" className="w-32" />
                     <button className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-black"> <ChevronFirst /> </button>
                 </div>
+                
                 <ul className="flex-1 px-3">
                     {children}
                 </ul>
+
                 
+
             </nav>
         </div>
     )
