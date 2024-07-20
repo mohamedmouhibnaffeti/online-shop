@@ -13,7 +13,7 @@ export default function DashMain(){
                     alert={false}
                 />
                 <SidebarItem
-                    icon={<SendToBack size={20} />}
+                    icon={<Statis size={20} />}
                     text={"Statistics"}
                     active={false}
                     alert={false}
