@@ -27,7 +27,7 @@ export default function Sidebar({children}: {children: any}){
                                 <span className="text-xs text-gray-600"> mouhibnaffeti@gmail.com </span>
                             </div>
                         </div>
-                        <LogOut className="text-red-500 cursor-pointer hover:text-red-700 transition delay-75 duration-100" />
+                        {}
                     </div>
                 </div>
 
