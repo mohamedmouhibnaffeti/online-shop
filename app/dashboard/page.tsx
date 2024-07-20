@@ -1,4 +1,4 @@
-import { BarChart, BarChart3, Dock, ScreenShareIcon, SendToBack, Settings, Settings2 } from "lucide-react";
+import { BarChart, BarChart2, Dock, ScreenShareIcon, SendToBack, Settings, Settings2 } from "lucide-react";
 import Sidebar from "../Components/SideBar";
 import SidebarItem from "../Components/SideBarItem";
 
