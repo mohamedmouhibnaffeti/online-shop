@@ -1,4 +1,4 @@
-import { BarChart, Dock, ScreenShareIcon, SendToBack, Settings, Settings2 } from "lucide-react";
+import { BarChart, BarChart3, Dock, ScreenShareIcon, SendToBack, Settings, Settings2 } from "lucide-react";
 import Sidebar from "../Components/SideBar";
 import SidebarItem from "../Components/SideBarItem";
 
@@ -13,7 +13,7 @@ export default function DashMain(){
                     alert={false}
                 />
                 <SidebarItem
-                    icon={<barchar size={20} />}
+                    icon={<BarChart2 size={20} />}
                     text={"Statistics"}
                     active={false}
                     alert={false}
