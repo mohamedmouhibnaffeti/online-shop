@@ -1,6 +1,6 @@
 import { ChevronFirst } from "lucide-react"
 import Image from "next/image"
-export default function Sidebar({children}){
+export default function Sidebar({children}: {children: any}){
     return(
         <div className="h-screen">
             <nav className="h-full flex flex-col bg-white border-r border-gray-300 shadow-sm w-fit">
