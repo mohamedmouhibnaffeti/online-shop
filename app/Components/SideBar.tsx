@@ -18,6 +18,7 @@ export default function Sidebar({children}: {children: any}){
                     <div className="flex justify-between items-center w-52 ml-3">
                         <div className="leading-4">
                             <h4 className="font-semibold"> John Doe </h4>
+                            <span className="">  </span>
                         </div>
                     </div>
                 </div>
