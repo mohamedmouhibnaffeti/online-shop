@@ -20,7 +20,7 @@ export default function Sidebar({children}: {children: any}){
                             <h4 className="font-semibold text-black"> John Doe </h4>
                             <span className="text-xs text-gray-600"> mouhibnaffeti@gmail.com </span>
                         </div>
-                        <LogOut className="text-red-500" />
+                        <LogOut className="text-red-500 cur" />
                     </div>
                 </div>
 
