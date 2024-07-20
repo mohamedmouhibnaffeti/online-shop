@@ -22,7 +22,7 @@ export default function DashMain(){
                     icon={<Dock size={20} />}
                     text={"Categories"}
                     active={false}
-                    alert={false}
+                    alert={true}
                 />
             </Sidebar>
         </div>
