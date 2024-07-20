@@ -14,7 +14,7 @@ export default function Sidebar({children}: {children: any}){
                 </ul>
 
                 <div className="border-t border-gray-300 flex p-3">
-                <Image src={`https://ui-avatars.com/api?background=c7d2fe&color`} height={100} width={100} alt="" className="w-32" />
+                <Image src={`https://ui-avatars.com/api?background=c7d2fe&color=3730a3&bold=true`} height={100} width={100} alt="" className="w-32" />
                 </div>
 
             </nav>
