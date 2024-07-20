@@ -8,7 +8,9 @@ export default function DashMain(){
             <Sidebar>
                 <SidebarItem
                     icon={<ScreenShareIcon size={20} />}
-                    text={"Overview"} active={true} alert={false} />
+                    text={"Overview"}
+                    active={true}
+                    alert={false} />
             </Sidebar>
         </div>
     )
