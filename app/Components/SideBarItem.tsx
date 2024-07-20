@@ -1,3 +1,4 @@
+"use client"
 import { Divide } from "lucide-react";
 import { useContext } from "react";
 import { SidebarContext } from "./SideBar";
