@@ -19,6 +19,12 @@ export default function DashMain(){
                     alert={false}
                 />
                 <SidebarItem
+                    icon={<SendToBack size={20} />}
+                    text={"Articles"}
+                    active={false}
+                    alert={false}
+                />
+                <SidebarItem
                     icon={<Dock size={20} />}
                     text={"Categories"}
                     active={false}
