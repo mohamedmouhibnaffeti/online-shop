@@ -20,8 +20,8 @@ export default function Sidebar({children}: {children: any}){
                             <h4 className="font-semibold text-black"> John Doe </h4>
                             <span className="text-xs text-gray-600"> mouhibnaffeti@gmail.com </span>
                         </div>
+                        
                     </div>
-                    
                 </div>
 
             </nav>
