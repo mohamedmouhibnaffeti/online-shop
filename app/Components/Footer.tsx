@@ -15,7 +15,9 @@ const links = [
 
 const Footer = () =>{
     const pathName = usePathname()
-    
+    if(pathName.startsWith("/dashboard")){
+        return null
+    }
     const handleEmailClick = async () => {
         await navigator.clipboard.writeText('marbiliamode@gmail.com')
         alert('Copied Email to Clipboard')
