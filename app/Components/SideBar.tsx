@@ -21,11 +21,10 @@ export default function Sidebar({children}: {children: any}){
                 </div>
 
                 <SidebarContext.Provider>
-                    
+                    <ul className="flex-1 px-3">
+                        {children}
+                    </ul>
                 </SidebarContext.Provider>
-                <ul className="flex-1 px-3">
-                    {children}
-                </ul>
 
                 <div className="border-t border-gray-300 flex p-3">
                     <Image src={`https://ui-avatars.com/api/?name=MN&bold=true&background=ADD8E6&color=4682B4`} height={100} width={100} alt="" className="w-10 h-10 rounded-md" />
