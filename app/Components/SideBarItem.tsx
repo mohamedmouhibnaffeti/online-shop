@@ -10,7 +10,7 @@ export default function SidebarItem({icon, text, active, alert}:{icon: any, text
             ${active ? "bg-gradient-to-r from-indigo-200 to-indigo-100 text-indigo-800" : "hover:bg-indigo-50 text-gray-600"}
         `}>
             {icon}
-            <span className="w-52 ml-3"> {text} </span>
+            <span className=> {text} </span>
             {alert && <div className={`absolute right-2 w-2 h-2 rounded bg-indigo-400`} />}
         </li>
     )
