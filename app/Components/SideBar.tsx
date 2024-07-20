@@ -3,13 +3,7 @@ import { ChevronFirst, ChevronLast, LogOut } from "lucide-react"
 import Image from "next/image"
 import { useContext, useState } from "react"
 
-
-
-const initialContext = {
-    expanded: true
-}
-
-export const SidebarContext = useContext(initialContext)
+export const SidebarContext = useContext()
 export default function Sidebar({children}: {children: any}){
     const [expanded, setExpanded] = useState(false)
     return(
