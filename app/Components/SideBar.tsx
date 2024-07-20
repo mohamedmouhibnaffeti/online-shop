@@ -22,7 +22,7 @@ export default function Sidebar({children}: {children: any}){
                                 <span className="text-xs text-gray-600"> mouhibnaffeti@gmail.com </span>
                             </div>
                         </div>
-                        <LogOut className="text-red-500 cursor-pointer " />
+                        <LogOut className="text-red-500 cursor-pointer mr-0" />
                     </div>
                 </div>
 
