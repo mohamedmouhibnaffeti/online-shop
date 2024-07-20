@@ -13,7 +13,7 @@ export default function DashMain(){
                     alert={false}
                 />
                 <SidebarItem
-                    icon={<BarChart size={20} />}
+                    icon={<barchar size={20} />}
                     text={"Statistics"}
                     active={false}
                     alert={false}
