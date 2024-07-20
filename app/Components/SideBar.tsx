@@ -1,5 +1,6 @@
 import { ChevronFirst, LogOut } from "lucide-react"
 import Image from "next/image"
+import { useState } from "react"
 export default function Sidebar({children}: {children: any}){
     const [expanded, setExpanded] = useState(false)
     return(
