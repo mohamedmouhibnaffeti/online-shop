@@ -14,7 +14,7 @@ export default function Sidebar({children}: {children: any}){
                 </ul>
 
                 <div className="border-t border-gray-300 flex p-3">
-                    <Image src={`https://ui-avatars.com/api/?namebold=true`} height={100} width={100} alt="" className="w-10 h-10 rounded-md" />
+                    <Image src={`https://ui-avatars.com/api/?name=Mouhib%Naffetibold=true`} height={100} width={100} alt="" className="w-10 h-10 rounded-md" />
                     <div className="flex justify-between items-center w-52 ml-3">
                         <div className="leading-4">
                             <h4 className="font-semibold text-black"> John Doe </h4>
