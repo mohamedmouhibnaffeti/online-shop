@@ -30,7 +30,12 @@ export default function DashMain(){
                     active={false}
                     alert={false}
                 />
-                
+                <SidebarItem
+                    icon={<SendToBack size={20} />}
+                    text={"Settings"}
+                    active={false}
+                    alert={false}
+                />
             </Sidebar>
         </div>
     )
