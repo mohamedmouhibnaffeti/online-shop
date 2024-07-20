@@ -10,7 +10,14 @@ export default function DashMain(){
                     icon={<ScreenShareIcon size={20} />}
                     text={"Overview"}
                     active={true}
-                    alert={false} />
+                    alert={false}
+                />
+                <SidebarItem
+                    icon={<ScreenShareIcon size={20} />}
+                    text={"Overview"}
+                    active={true}
+                    alert={false}
+                />
             </Sidebar>
         </div>
     )
