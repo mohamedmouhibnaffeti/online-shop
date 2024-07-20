@@ -4,7 +4,7 @@ import Image from "next/image"
 import { createContext, useState } from "react"
 
 const initalValue = {
-    
+    expanded: true
 }
 
 export const SidebarContext = createContext()
