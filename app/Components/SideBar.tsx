@@ -21,6 +21,7 @@ export default function Sidebar({children}: {children: any}){
                             <span className="text-xs text-gray-600"> mouhibnaffeti@gmail.com </span>
                         </div>
                     </div>
+                    
                 </div>
 
             </nav>
