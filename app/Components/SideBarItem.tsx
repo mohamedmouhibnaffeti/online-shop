@@ -13,8 +13,11 @@ export default function SidebarItem({icon, text, active, alert}:{icon: any, text
             {icon}
             <span className={`overflow-hidden transition-all ${expanded ? "w-52 ml-3" : "w-0"}`}> {text} </span>
             {alert && <div className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${expanded ? "" : "top-2"}`} />}
-            {expanded && <div>
-                </div>}
+            {
+                expanded &&
+                <div>
+                </div>
+            }
         </li>
     )
 }
