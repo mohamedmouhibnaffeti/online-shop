@@ -17,7 +17,7 @@ export default function Sidebar({children}: {children: any}){
                     <Image src={`https://ui-avatars.com/api/?bold=true`} height={100} width={100} alt="" className="w-10 h-10 rounded-md" />
                     <div className="flex justify-between items-center w-52 ml-3">
                         <div>
-                            
+                            <h4 className=""> John Doe </h4>
 
                         </div>
                     </div>
