@@ -19,7 +19,8 @@ export default function Sidebar({children}: {children: any}){
                         { expanded ? <ChevronFirst /> : <ChevronLast /> }
                     </button>
                 </div>
-                
+
+                <Side
                 <ul className="flex-1 px-3">
                     {children}
                 </ul>
