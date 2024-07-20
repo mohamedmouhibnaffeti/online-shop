@@ -1,4 +1,4 @@
-import { ScreenShareIcon } from "lucide-react";
+import { ScreenShareIcon, SendToBack } from "lucide-react";
 import Sidebar from "../Components/SideBar";
 import SidebarItem from "../Components/SideBarItem";
 
@@ -13,7 +13,7 @@ export default function DashMain(){
                     alert={false}
                 />
                 <SidebarItem
-                    icon={<Stock size={20} />}
+                    icon={<SendToBack size={20} />}
                     text={"Articles"}
                     active={false}
                     alert={false}
