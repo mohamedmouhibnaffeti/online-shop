@@ -1,10 +1,11 @@
 import Sidebar from "../Components/SideBar";
+import SidebarItem from "../Components/SideBarItem";
 
 export default function DashMain(){
     return(
         <div className="bg-white">
             <Sidebar>
-                <SidebarI
+                <SidebarItem icon={<} />
             </Sidebar>
         </div>
     )
