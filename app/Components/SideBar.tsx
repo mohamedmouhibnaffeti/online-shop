@@ -13,7 +13,9 @@ export default function Sidebar({children}: {children: any}){
                     {children}
                 </ul>
 
-                
+                <div className="border-t flex py">
+
+                </div>
 
             </nav>
         </div>
