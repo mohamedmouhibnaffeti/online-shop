@@ -1,7 +1,7 @@
-export default function SidebarItem({icon, text, active, alert}:{icon, text, active: any, alert: any} ){
+export default function SidebarItem({icon, text, active, alert}:{icon: any, text: any, active: any, alert: any} ){
     return(
         <div>
-
+            
         </div>
     )
 }
