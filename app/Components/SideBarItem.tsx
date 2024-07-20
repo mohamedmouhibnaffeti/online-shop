@@ -15,7 +15,7 @@ export default function SidebarItem({icon, text, active, alert}:{icon: any, text
             {alert && <div className={`absolute right-2 w-2 h-2 rounded bg-indigo-400 ${expanded ? "" : "top-2"}`} />}
             {
                 expanded &&
-                <div className={``}>
+                <div className={`absolute`}>
 
                 </div>
             }
