@@ -5,11 +5,15 @@ export async function POST(request: NextRequest) {
     try {
         const data = await request.formData();
         const images = [];
-        images.push(data.get("image0"));
-        images.push(data.get("image1"));
+        images.push(data.get("image0") as File);
+        images.push(data.get("image1") as File);
 
         // Convert images to binary
-        const binaryImages = images.map((image: any) => Buffer.from(image, 'base64'));
+        const imageBuffer: any= []
+        for(const image of images){
+            const buffer = Buffer.from(await image.arrayBuffer())
+            imageBuffer.push(buffer)
+        }
 
         const name = data.get("name") as string;
         const description = data.get("description") as string;
@@ -91,7 +95,7 @@ export async function POST(request: NextRequest) {
         // Insert new article
         await new Promise<void>((resolve, reject) => {
             const query = `INSERT INTO articles(name, description, category, images) VALUES(?, ?, ?, ?)`;
-            db.run(query, [name, description, category, Buffer.concat(binaryImages)], function (err) {
+            db.run(query, [name, description, category, Buffer.concat(imageBuffer)], function (err) {
                 if (err) {
                     console.error("Error inserting article:", err.message);
                     if (err.message.includes("FOREIGN KEY constraint failed")) {
