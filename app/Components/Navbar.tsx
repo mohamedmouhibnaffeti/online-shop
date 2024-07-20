@@ -44,7 +44,9 @@ const houseMaterialsCategories: string[] = [
 
 const Navbar = () => {
     const pathName = usePathname()
-    if(pathName.startsWith)
+    if(pathName.startsWith("/dashboard")){
+        return null
+    }
     return (
         <header className="fixed top-0 mb-8 w-full z-40 border-b glassmorphism">
             <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
