@@ -6,7 +6,7 @@ export default function DashMain(){
     return(
         <div className="bg-white">
             <Sidebar>
-                <SidebarItem icon={<ScreenShareIcon size={20} />} text={""} />
+                <SidebarItem icon={<ScreenShareIcon size={20} />} text={"Main"} />
             </Sidebar>
         </div>
     )
