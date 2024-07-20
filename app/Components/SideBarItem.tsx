@@ -1,5 +1,4 @@
 "use client"
-import { Divide } from "lucide-react";
 import { useContext } from "react";
 import { SidebarContext } from "./SideBar";
 export default function SidebarItem({icon, text, active, alert}:{icon: any, text: any, active: any, alert: any} ){
