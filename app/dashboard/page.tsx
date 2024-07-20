@@ -1,4 +1,4 @@
-import { ScreenShareIcon, SendToBack } from "lucide-react";
+import { Dock, ScreenShareIcon, SendToBack } from "lucide-react";
 import Sidebar from "../Components/SideBar";
 import SidebarItem from "../Components/SideBarItem";
 
@@ -19,7 +19,7 @@ export default function DashMain(){
                     alert={false}
                 />
                 <SidebarItem
-                    icon={<SendToBack size={20} />}
+                    icon={<Dock size={20} />}
                     text={"Categories"}
                     active={false}
                     alert={false}
