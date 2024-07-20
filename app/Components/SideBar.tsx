@@ -8,7 +8,7 @@ export default function Sidebar({children}: {children: any}){
         <div className="h-screen">
             <nav className="h-full flex flex-col bg-white border-r border-gray-300 shadow-sm w-fit">
                 <div className="p-4 pb-2 flex justify-between items-center">
-                    <Image src={`https://img.logoipsum.com/243.svg`} height={100} width={100} alt="" className={`overflow-hidden transition-all`} />
+                    <Image src={`https://img.logoipsum.com/243.svg`} height={100} width={100} alt="" className={`overflow-hidden transition-all `} />
                     <button onClick={()=>{setExpanded(curr => !curr)}} className="p-1.5 rounded-lg bg-gray-50 hover:bg-gray-100 text-black">
                         { expanded ? <ChevronFirst /> : <ChevronLast /> }
                     </button>
