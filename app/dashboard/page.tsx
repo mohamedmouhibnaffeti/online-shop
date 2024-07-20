@@ -13,7 +13,7 @@ export default function DashMain(){
                     alert={false}
                 />
                 <SidebarItem
-                    icon={< size={20} />}
+                    icon={<Sell size={20} />}
                     text={"Articles"}
                     active={false}
                     alert={false}
