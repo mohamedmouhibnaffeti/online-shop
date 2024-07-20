@@ -9,7 +9,7 @@ export default function SidebarItem({icon, text, active, alert}:{icon: any, text
         `}>
             {icon}
             <span className="w-52 ml-3"> {text} </span>
-            {alert && <div className={`absolute ri`} />}
+            {alert && <div className={`absolute right-2 w-2 h-2 rounded `} />}
         </li>
     )
 }
