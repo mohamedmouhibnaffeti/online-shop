@@ -30,6 +30,7 @@ export default function DashMain(){
                     active={false}
                     alert={false}
                 />
+                
             </Sidebar>
         </div>
     )
