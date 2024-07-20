@@ -1,3 +1,7 @@
-export default function SidebarItem({}){
+export default function SidebarItem({icon, }){
+    return(
+        <div>
 
+        </div>
+    )
 }
