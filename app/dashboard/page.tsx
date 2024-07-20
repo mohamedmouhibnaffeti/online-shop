@@ -1,4 +1,4 @@
-import { Dock, ScreenShareIcon, SendToBack, Settings2 } from "lucide-react";
+import { Dock, ScreenShareIcon, SendToBack, Settings, Settings2 } from "lucide-react";
 import Sidebar from "../Components/SideBar";
 import SidebarItem from "../Components/SideBarItem";
 
