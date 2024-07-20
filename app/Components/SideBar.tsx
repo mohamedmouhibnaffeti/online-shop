@@ -15,14 +15,14 @@ export default function Sidebar({children}: {children: any}){
 
                 <div className="border-t border-gray-300 flex p-3">
                     <Image src={`https://ui-avatars.com/api/?name=MN&bold=true&background=ADD8E6&color=4682B4`} height={100} width={100} alt="" className="w-10 h-10 rounded-md" />
-                    <div className="flex items-center w-52 ml-3">
+                    <div className="flex jus items-center w-52 ml-3">
                         <div className="flex justify-between items-center">
                             <div className="leading-4">
                                 <h4 className="font-semibold text-black"> John Doe </h4>
                                 <span className="text-xs text-gray-600"> mouhibnaffeti@gmail.com </span>
                             </div>
                         </div>
-                        <LogOut className="text-red-500 cursor-pointer right-0" />
+                        <LogOut className="text-red-500 cursor-pointer" />
                     </div>
                 </div>
 
