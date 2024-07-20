@@ -20,7 +20,7 @@ export default function SidebarItem({icon, text, active, alert}:{icon: any, text
                     bg-indigo-100 text-indigo-800 text-sm
                     invisible opacity-20 -translate-x-3 transition-all
                     group-hover:invisible group-hover:opacity-100
-                    group-hover:translate
+                    group-hover:translate-x-0
                 `}>
                     {text}
                 </div>
