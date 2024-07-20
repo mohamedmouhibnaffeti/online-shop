@@ -11,6 +11,7 @@ export default function Sidebar({children}: {children: any}){
                 <ul className="flex-1 px-3">
                     {children}
                 </ul>
+                
             </nav>
         </div>
     )
