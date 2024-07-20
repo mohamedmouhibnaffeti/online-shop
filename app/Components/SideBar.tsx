@@ -20,7 +20,9 @@ export default function Sidebar({children}: {children: any}){
                     </button>
                 </div>
 
-                <Side
+                <SidebarContext.Provider>
+                    
+                </SidebarContext.Provider>
                 <ul className="flex-1 px-3">
                     {children}
                 </ul>
