@@ -1,4 +1,4 @@
-import { ChevronFirst } from "lucide-react"
+import { ChevronFirst, LogOut } from "lucide-react"
 import Image from "next/image"
 export default function Sidebar({children}: {children: any}){
     return(
@@ -20,7 +20,7 @@ export default function Sidebar({children}: {children: any}){
                             <h4 className="font-semibold text-black"> John Doe </h4>
                             <span className="text-xs text-gray-600"> mouhibnaffeti@gmail.com </span>
                         </div>
-                        
+                        <LogOut className="text-red-5" />
                     </div>
                 </div>
 
