@@ -18,7 +18,7 @@ export default function SidebarItem({icon, text, active, alert}:{icon: any, text
                 <div className={`
                     absolute left-full rounded-md px-2 py-1 ml-6
                     bg-indigo-100 text-indigo-800 text-sm
-                    invisible 
+                    invisible opacity-20 -transla
                 `}>
                     {text}
                 </div>
