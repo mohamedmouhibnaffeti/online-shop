@@ -1,3 +1,5 @@
+import { Divide } from "lucide-react";
+
 export default function SidebarItem({icon, text, active, alert}:{icon: any, text: any, active: any, alert: any} ){
     return(
         <li className={`
@@ -7,6 +9,7 @@ export default function SidebarItem({icon, text, active, alert}:{icon: any, text
         `}>
             {icon}
             <span className="w-52 ml-3"> {text} </span>
+            {alert && Divide}
         </li>
     )
 }
