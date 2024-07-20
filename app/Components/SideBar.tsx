@@ -8,6 +8,7 @@ const initalValue = {
 }
 
 export const SidebarContext = createContext(initalValue)
+
 export default function Sidebar({children}: {children: any}){
     const [expanded, setExpanded] = useState(false)
     return(
