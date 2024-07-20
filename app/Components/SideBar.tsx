@@ -7,7 +7,7 @@ const initialContext = {
     expanded: true
 }
 
-export const SidebarContext = useContext()
+export const SidebarContext = useContext(initialContext)
 export default function Sidebar({children}: {children: any}){
     const [expanded, setExpanded] = useState(false)
     return(
