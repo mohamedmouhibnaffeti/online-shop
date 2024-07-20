@@ -5,7 +5,7 @@ export default function DashMain(){
     return(
         <div className="bg-white">
             <Sidebar>
-                <SidebarItem icon={<UI} />
+                <SidebarItem icon={<SC} />
             </Sidebar>
         </div>
     )
