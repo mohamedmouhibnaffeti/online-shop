@@ -30,7 +30,7 @@ export default function Sidebar({children}: {children: any}){
                         {expanded && <LogOut className="text-red-500 cursor-pointer hover:text-red-700 transition delay-75 duration-100" />}
                     </div>
                 </div>
-                {!expanded && <LogOut className="text-red-500 cursor-pointer hover:text-red-700 transition delay-75 duration-100 ml-3 w-6" />}
+                {!expanded && <LogOut className="text-red-500 cursor-pointer hover:text-red-700 transition delay-75 duration-100 ml-3" />}
             </nav>
         </div>
     )
