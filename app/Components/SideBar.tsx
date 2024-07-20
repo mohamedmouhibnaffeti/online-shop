@@ -1,6 +1,7 @@
 import { ChevronFirst, LogOut } from "lucide-react"
 import Image from "next/image"
 export default function Sidebar({children}: {children: any}){
+    const [expanded, setExpanded] = useState(false)
     return(
         <div className="h-screen">
             <nav className="h-full flex flex-col bg-white border-r border-gray-300 shadow-sm w-fit">
