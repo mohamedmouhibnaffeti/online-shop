@@ -4,7 +4,7 @@ export default function DashMain(){
     return(
         <div className="bg-white">
             <Sidebar>
-                
+                <SidebarI
             </Sidebar>
         </div>
     )
