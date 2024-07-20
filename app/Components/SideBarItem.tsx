@@ -19,7 +19,7 @@ export default function SidebarItem({icon, text, active, alert}:{icon: any, text
                     absolute left-full rounded-md px-2 py-1 ml-6
                     bg-indigo-100 text-indigo-800 text-sm
                     invisible opacity-20 -translate-x-3 transition-all
-                    group-hover:invisible group-hover
+                    group-hover:invisible group-hover:opacity-100
                 `}>
                     {text}
                 </div>
