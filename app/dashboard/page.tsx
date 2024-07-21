@@ -22,7 +22,7 @@ export default function DashMain(){
                     icon={<SendToBack size={20} />}
                     text={"Articles"}
                     active={false}
-                    alert={true}
+                    alert={true} 
                 />
                 <SidebarItem
                     icon={<Dock size={20} />}
